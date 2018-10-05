@@ -30,16 +30,3 @@ for device, ints in all_interfaces.items():
             print('{}:{} CRC Errors: {}'.format(device,
                                                 name,
                                                 counters['in_crc_errors']))
-
-
-# print('\nUpdating IPAM')
-# for i in netbox_api_payloads:
-#     result = 'ok' if update_ipam(i).ok else 'failed'
-#     print("Updating IPAM for {}......{}".format(i['description'], result))
-#
-#
-#
-
-# print("\nAnd here is some other data we would have available to add to the updates additionally")
-# import json
-# print(json.dumps(props, indent=2))
