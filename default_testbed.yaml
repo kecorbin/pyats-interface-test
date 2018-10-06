@@ -1,0 +1,207 @@
+testbed:
+
+  name: demo_default_5ocPHm
+
+  tacacs:
+      username: "%ENV{PYATS_USERNAME}"
+  passwords:
+      tacacs: "%ENV{PYATS_PASSWORD}"
+      enable: "%ENV{PYATS_AUTH_PASS}"
+      line: "%ENV{PYATS_PASSWORD}"
+
+devices:
+
+  partner2:
+    alias: partner2
+    os: iosxe
+    type: CSR1000v
+    connections:
+
+      defaults:
+        class: unicon.Unicon
+      console:
+        ip: 10.94.241.194
+        protocol: telnet
+        port: 17005
+    custom:
+      abstraction:
+        order: [os, type]
+
+  partner3:
+    alias: partner3
+    os: iosxe
+    type: CSR1000v
+    connections:
+
+      defaults:
+        class: unicon.Unicon
+      console:
+        ip: 10.94.241.194
+        protocol: telnet
+        port: 17009
+    custom:
+      abstraction:
+        order: [os, type]
+
+  headend:
+    alias: headend
+    os: iosxe
+    type: CSR1000v
+    connections:
+
+      defaults:
+        class: unicon.Unicon
+      console:
+        ip: 10.94.241.194
+        protocol: telnet
+        port: 17001
+    custom:
+      abstraction:
+        order: [os, type]
+
+  partner1:
+    alias: partner1
+    os: iosxe
+    type: CSR1000v
+    connections:
+
+      defaults:
+        class: unicon.Unicon
+      console:
+        ip: 10.94.241.194
+        protocol: telnet
+        port: 17007
+    custom:
+      abstraction:
+        order: [os, type]
+
+  partner4:
+    alias: partner4
+    os: iosxe
+    type: CSR1000v
+    connections:
+
+      defaults:
+        class: unicon.Unicon
+      console:
+        ip: 10.94.241.194
+        protocol: telnet
+        port: 17011
+    custom:
+      abstraction:
+        order: [os, type]
+
+
+  internet:
+    alias: internet
+    os: iosxe
+    type: CSR1000v
+    connections:
+
+      defaults:
+        class: unicon.Unicon
+      console:
+        ip: 10.94.241.194
+        protocol: telnet
+        port: 17003
+    custom:
+      abstraction:
+        order: [os, type]
+
+topology:
+  partner2:
+    interfaces:
+      GigabitEthernet3:
+        ipv4: 172.16.0.34/30
+        link: host2-to-partner2
+        type: ethernet
+      GigabitEthernet2:
+        ipv4: 172.16.0.14/30
+        link: internet-to-partner2
+        type: ethernet
+      GigabitEthernet1:
+        ipv4: 10.94.241.251/27
+        link: flat
+        type: ethernet
+  partner3:
+    interfaces:
+      GigabitEthernet3:
+        ipv4: 172.16.0.38/30
+        link: host3-to-partner3
+        type: ethernet
+      GigabitEthernet2:
+        ipv4: 172.16.0.18/30
+        link: internet-to-partner3
+        type: ethernet
+      GigabitEthernet1:
+        ipv4: 10.94.241.252/27
+        link: flat
+        type: ethernet
+  headend:
+    interfaces:
+      GigabitEthernet3:
+        ipv4: 172.16.0.25/30
+        link: headend-to-host0
+        type: ethernet
+      GigabitEthernet2:
+        ipv4: 172.16.0.5/30
+        link: headend-to-internet
+        type: ethernet
+      GigabitEthernet1:
+        ipv4: 10.94.241.237/27
+        link: flat
+        type: ethernet
+  partner1:
+    interfaces:
+      GigabitEthernet3:
+        ipv4: 172.16.0.30/30
+        link: host1-to-partner1
+        type: ethernet
+      GigabitEthernet2:
+        ipv4: 172.16.0.10/30
+        link: internet-to-partner1
+        type: ethernet
+      GigabitEthernet1:
+        ipv4: 10.94.241.248/27
+        link: flat
+        type: ethernet
+  partner4:
+    interfaces:
+      GigabitEthernet3:
+        ipv4: 172.16.0.42/30
+        link: host4-to-partner4
+        type: ethernet
+      GigabitEthernet2:
+        ipv4: 172.16.0.22/30
+        link: internet-to-partner4
+        type: ethernet
+      GigabitEthernet1:
+        ipv4: 10.94.241.228/27
+        link: flat
+        type: ethernet
+  internet:
+    interfaces:
+      GigabitEthernet1:
+        ipv4: 10.94.241.247/27
+        link: flat
+        type: ethernet
+      GigabitEthernet3:
+        ipv4: 172.16.0.9/30
+        link: internet-to-partner1
+        type: ethernet
+      GigabitEthernet2:
+        ipv4: 172.16.0.6/30
+        link: headend-to-internet
+        type: ethernet
+      GigabitEthernet5:
+        ipv4: 172.16.0.17/30
+        link: internet-to-partner3
+        type: ethernet
+      GigabitEthernet4:
+        ipv4: 172.16.0.13/30
+        link: internet-to-partner2
+        type: ethernet
+      GigabitEthernet6:
+        ipv4: 172.16.0.21/30
+        link: internet-to-partner4
+        type: ethernet
