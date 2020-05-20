@@ -24,7 +24,7 @@ genie.predcore==3.0.1
 genie.telemetry==3.0.2
 genie.utils==3.0.2
 graphviz==0.9
-httplib2==0.11.3
+httplib2==0.18.0
 idna==2.7
 ipython-genutils==0.2.0
 jedi==0.13.1
