@@ -28,7 +28,7 @@ httplib2==0.11.3
 idna==2.7
 ipython-genutils==0.2.0
 jedi==0.13.1
-Jinja2==2.10
+Jinja2==2.11.3
 jsonpickle==1.0
 junit-xml==1.8
 MarkupSafe==1.0
